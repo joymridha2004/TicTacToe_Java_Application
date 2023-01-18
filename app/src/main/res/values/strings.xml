@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="version">TicTacToe_V_0.0.1</string>
+    <string name="players_details">Players Details</string>
+    <string name="enter_1st_player_name">Enter 1st Player Nick Name</string>
+    <string name="enter_2nd_player_name">Enter 2nd Player Nick Name</string>
+    <string name="have_a_good_day_friends">Have a Good Day Friends</string>
+    <string name="start_game">Start Game</string>
+    <string name="your_game_point">Your Game Point : </string>
+    <string name="restart">Restart</string>
+</resources>
