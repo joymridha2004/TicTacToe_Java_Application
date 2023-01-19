@@ -262,6 +262,13 @@ public class Game_Activity extends AppCompatActivity {
     public void FindWinner(String WinSymbol){
         if(WinSymbol.equals(Player1stGot)){
             Player1stPoint ++;
+            if (Player1stGot.equals("X")){
+                Player1stGotTV.setText( Player1stName +" You " + " Got  'O'");
+                Player2ndGotTV.setText( Player2ndName +" You " + " Got  'X'");
+            }else {
+                Player1stGotTV.setText( Player1stName +" You " + " Got  'X'");
+                Player2ndGotTV.setText( Player2ndName +" You " + " Got  'O'");
+            }
             Toast.makeText(this, "Winner is : "+Player1stName, Toast.LENGTH_SHORT).show();
             if (Player1stPoint<=9) {
                 GameActivity1stPlayerScoreTextView.setText("0" + Player1stPoint);
@@ -271,6 +278,13 @@ public class Game_Activity extends AppCompatActivity {
         }else if (WinSymbol.equals(Player2ndGot)){
             Toast.makeText(this, "Winner is : "+Player2ndName, Toast.LENGTH_SHORT).show();
             Player2ndPoint ++;
+            if (Player2ndGot.equals("X")){
+                Player1stGotTV.setText( Player1stName +" You " + " Got  'X'");
+                Player2ndGotTV.setText( Player2ndName +" You " + " Got  'O'");
+            }else {
+                Player1stGotTV.setText( Player1stName +" You " + " Got  'X'");
+                Player2ndGotTV.setText( Player2ndName +" You " + " Got  'O'");
+            }
             if (Player2ndPoint<=9) {
                 GameActivity2ndPlayerScoreTextView.setText("0" + Player2ndPoint);
             }else{
