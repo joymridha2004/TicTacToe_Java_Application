@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -124,8 +125,9 @@ public class Game_Activity extends AppCompatActivity {
         GameActivity2ndPlayerScoreTextView.setText("00");
 
         GameActivity1stPlayerMoveStatusTextView.setText("Now  "+Player1stName+" Your Game Move");
+        GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
         GameActivity2ndPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
-
+        GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
 
         /*---------------On Click Listener On ReStart Game Button--------------->*/
 
@@ -191,9 +193,13 @@ public class Game_Activity extends AppCompatActivity {
                 if (Player1stGot.equals("X")){
                     GameActivity2ndPlayerMoveStatusTextView.setText("Now  "+Player2ndName+" Your Game Move");
                     GameActivity1stPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
+                    GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
+                    GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
                 }else{
                     GameActivity1stPlayerMoveStatusTextView.setText("Now  "+Player1stName+" Your Game Move");
                     GameActivity2ndPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
+                    GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
+                    GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
                 }
 
             }else{
@@ -201,9 +207,13 @@ public class Game_Activity extends AppCompatActivity {
                 if (Player1stGot.equals("O")){
                     GameActivity2ndPlayerMoveStatusTextView.setText("Now  "+Player2ndName+" Your Game Move");
                     GameActivity1stPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
+                    GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
+                    GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
                 }else{
                     GameActivity1stPlayerMoveStatusTextView.setText("Now  "+Player1stName+" Your Game Move");
                     GameActivity2ndPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
+                    GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
+                    GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
                 }
             }
 
