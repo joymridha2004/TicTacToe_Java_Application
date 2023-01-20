@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TicTacToe</string>
-    <string name="version">TicTacToe_V_0.0.2</string>
+    <string name="version">TicTacToe_V_0.0.3</string>
     <string name="players_details">Players Details</string>
     <string name="enter_1st_player_name">Enter 1st Player Nick Name</string>
     <string name="enter_2nd_player_name">Enter 2nd Player Nick Name</string>

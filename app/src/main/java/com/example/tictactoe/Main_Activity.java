@@ -35,9 +35,8 @@ public class Main_Activity extends AppCompatActivity {
 
                 /*---------------Conditions--------------->*/
 
-                if (!MainActivity1stPlayerNameEditText.getText().toString().isEmpty() && !MainActivity2ndPlayerNameEditText.getText().toString().isEmpty() && !MainActivity1stPlayerNameEditText.getText().toString().equals(MainActivity2ndPlayerNameEditText.getText().toString()))
-                {
-                    Toast.makeText(getApplicationContext()," Hi   "+MainActivity1stPlayerNameEditText.getText().toString()+"  and   "+ MainActivity2ndPlayerNameEditText.getText().toString(),Toast.LENGTH_SHORT).show();
+                if (!MainActivity1stPlayerNameEditText.getText().toString().isEmpty() && !MainActivity2ndPlayerNameEditText.getText().toString().isEmpty() && !MainActivity1stPlayerNameEditText.getText().toString().equals(MainActivity2ndPlayerNameEditText.getText().toString())) {
+                    Toast.makeText(getApplicationContext(), " Hi   " + MainActivity1stPlayerNameEditText.getText().toString() + "  and   " + MainActivity2ndPlayerNameEditText.getText().toString(), Toast.LENGTH_SHORT).show();
 
                     /*---------------Save the name --------------->*/
 
@@ -46,10 +45,10 @@ public class Main_Activity extends AppCompatActivity {
 
                     /*---------------Pass the Name through The Intent --------------->*/
 
-                    Intent intent = new Intent(Main_Activity.this,Game_Activity.class);
+                    Intent intent = new Intent(Main_Activity.this, Game_Activity.class);
 
-                    intent.putExtra("PlayerName1st",Player1stName);
-                    intent.putExtra("PlayerName2nd",Player2ndName);
+                    intent.putExtra("PlayerName1st", Player1stName);
+                    intent.putExtra("PlayerName2nd", Player2ndName);
 
                     startActivity(intent);
 
@@ -58,16 +57,15 @@ public class Main_Activity extends AppCompatActivity {
                     MainActivity1stPlayerNameEditText.setText(null);
                     MainActivity2ndPlayerNameEditText.setText(null);
 
-                }else if ( MainActivity1stPlayerNameEditText.getText().toString().equals(MainActivity2ndPlayerNameEditText.getText().toString()) && !MainActivity2ndPlayerNameEditText.getText().toString().isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Please Enter Two Different Name",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getApplicationContext(),"Please Enter Details",Toast.LENGTH_SHORT).show();
+                } else if (MainActivity1stPlayerNameEditText.getText().toString().equals(MainActivity2ndPlayerNameEditText.getText().toString()) && !MainActivity2ndPlayerNameEditText.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please Enter Two Different Name", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please Enter Details", Toast.LENGTH_SHORT).show();
                 }
 
 
             }
         });
-
 
 
     }
