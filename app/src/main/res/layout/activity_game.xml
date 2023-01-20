@@ -1,352 +1,363 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Game_Activity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/Game_Activity_Toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/back_icon" />
-
-    <TextView
-        android:id="@+id/Game_Activity_Version_TV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="@string/version"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/Game_Activity_2nd_Player_Score_Text_View"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:fontFamily="@font/poppins"
-        android:rotation="180"
-        android:text="01"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/Game_Activity_2nd_Player_Text_View"
-        app:layout_constraintTop_toBottomOf="@+id/Player2nd_Got_TV"
-        tools:ignore="MissingConstraints" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/Game_Activity_Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/back_icon" />
 
-    <TextView
-        android:id="@+id/Player2nd_Got_TV"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="125dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:paddingStart="12dp"
-        android:paddingTop="5dp"
-        android:rotation="180"
-        android:text="You Got 'O'"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/Game_Activity_2nd_Player_Text_View"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="120dp"
-        android:fontFamily="@font/poppins"
-        android:rotation="180"
-        android:text="@string/your_game_point"
-        android:textColor="@color/black_50"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Player2nd_Got_TV"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="120dp"
-        android:fontFamily="@font/poppins"
-        android:rotation="180"
-        android:text="Now Your Game Move"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Game_Activity_2nd_Player_Text_View"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/Game_Activity_Version_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/version"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <View
-        android:id="@+id/Bar_1"
-        android:layout_width="260dp"
-        android:layout_height="7dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="135dp"
-        android:background="@drawable/view_bar_shape"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/Game_Activity_2nd_Player_Score_Text_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/poppins"
+            android:rotation="180"
+            android:text="01"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/Game_Activity_2nd_Player_Text_View"
+            app:layout_constraintTop_toBottomOf="@+id/Player2nd_Got_TV"
+            tools:ignore="MissingConstraints" />
 
-    <View
-        android:id="@+id/Bar_2"
-        android:layout_width="260dp"
-        android:layout_height="7dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/view_bar_shape"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bar_1"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/Player2nd_Got_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:paddingStart="12dp"
+            android:paddingTop="5dp"
+            android:rotation="180"
+            android:text="You Got 'O'"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
-    <View
-        android:id="@+id/Bar_3"
-        android:layout_width="7dp"
-        android:layout_height="260dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/view_bar_shape"
-        app:layout_constraintStart_toStartOf="@+id/Bar_4"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/Game_Activity_2nd_Player_Text_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:rotation="180"
+            android:text="@string/your_game_point"
+            android:textColor="@color/black_50"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Player2nd_Got_TV"
+            tools:ignore="MissingConstraints" />
 
-    <View
-        android:id="@+id/Bar_4"
-        android:layout_width="7dp"
-        android:layout_height="260dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/view_bar_shape"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
-        tools:ignore="MissingConstraints" />
-
-
-    <TextView
-        android:id="@+id/Game_Activity_1st_Player_Move_Status_Text_View"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/poppins"
-        android:text="Now Your Game Move"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bar_4"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/Game_Activity_1st_Player_Text_View"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/your_game_point"
-        android:textColor="@color/black_50"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Game_Activity_1st_Player_Move_Status_Text_View"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/Game_Activity_1st_Player_Score_Text_View"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/poppins"
-        android:text="02"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/Game_Activity_1st_Player_Text_View"
-        app:layout_constraintTop_toTopOf="@+id/Game_Activity_1st_Player_Move_Status_Text_View"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Game_Activity_Restart_Button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/restart_button_shape"
-        android:elevation="20dp"
-        android:text="@string/restart"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Player1st_Got_TV" />
+        <TextView
+            android:id="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins"
+            android:rotation="180"
+            android:text="Now Your Game Move"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Game_Activity_2nd_Player_Text_View"
+            tools:ignore="MissingConstraints" />
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_1no_Button"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/Game_Activity_1st_Player_Move_Status_Text_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/poppins"
+            android:text="Now Your Game Move"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Game_Place_Layout"
+            tools:ignore="MissingConstraints" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_2no_Button"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toEndOf="@+id/Game_Activity_1no_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/Game_Activity_1st_Player_Text_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/your_game_point"
+            android:textColor="@color/black_50"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Game_Activity_1st_Player_Move_Status_Text_View"
+            tools:ignore="MissingConstraints" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_3no_Button"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toEndOf="@+id/Game_Activity_2no_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/Game_Activity_1st_Player_Score_Text_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins"
+            android:text="02"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/Game_Activity_1st_Player_Text_View"
+            app:layout_constraintTop_toTopOf="@+id/Game_Activity_1st_Player_Move_Status_Text_View"
+            tools:ignore="MissingConstraints" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_4no_Button"
-        android:layout_width="85dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_1no_Button"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_5no_Button"
-        android:layout_width="79dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toEndOf="@+id/Game_Activity_4no_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2no_Button"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_6no_Button"
-        android:layout_width="85dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toEndOf="@+id/Game_Activity_5no_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_3no_Button"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_7no_Button"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="11dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_4no_Button"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_8no_Button"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="11dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toEndOf="@+id/Game_Activity_7no_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_5no_Button"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:onClick="check"
-        android:id="@+id/Game_Activity_9no_Button"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="11dp"
-        android:background="@color/transparent"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="64sp"
-        app:layout_constraintStart_toEndOf="@+id/Game_Activity_8no_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_5no_Button"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/Player1st_Got_TV"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:paddingStart="12dp"
-        android:paddingTop="5dp"
-        android:text="You Got 'X'"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Game_Activity_1st_Player_Text_View"
-        tools:ignore="MissingConstraints" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Game_Activity_Restart_Button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/restart_button_shape"
+            android:elevation="20dp"
+            android:text="@string/restart"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Player1st_Got_TV" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Game_Place_Layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/Game_Activity_1st_Player_Move_Status_Text_View"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2nd_Player_Move_Status_Text_View"
+            tools:ignore="MissingConstraints">
+
+            <View
+                android:id="@+id/Bar_1"
+                android:layout_width="260dp"
+                android:layout_height="7dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="86dp"
+                android:background="@drawable/view_bar_shape"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <View
+                android:id="@+id/Bar_2"
+                android:layout_width="260dp"
+                android:layout_height="7dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/view_bar_shape"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Bar_1"
+                tools:ignore="MissingConstraints" />
+
+            <View
+                android:id="@+id/Bar_3"
+                android:layout_width="7dp"
+                android:layout_height="260dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/view_bar_shape"
+                app:layout_constraintStart_toStartOf="@+id/Bar_4"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <View
+                android:id="@+id/Bar_4"
+                android:layout_width="7dp"
+                android:layout_height="260dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/view_bar_shape"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_1no_Button"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_2no_Button"
+                android:layout_width="79dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="10dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toEndOf="@+id/Game_Activity_1no_Button"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_3no_Button"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="11dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toEndOf="@+id/Game_Activity_2no_Button"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_4no_Button"
+                android:layout_width="85dp"
+                android:layout_height="76dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Game_Activity_1no_Button"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_5no_Button"
+                android:layout_width="79dp"
+                android:layout_height="76dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toEndOf="@+id/Game_Activity_4no_Button"
+                app:layout_constraintTop_toBottomOf="@+id/Game_Activity_2no_Button"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_6no_Button"
+                android:layout_width="85dp"
+                android:layout_height="76dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toEndOf="@+id/Game_Activity_5no_Button"
+                app:layout_constraintTop_toBottomOf="@+id/Game_Activity_3no_Button"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_7no_Button"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="11dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Game_Activity_4no_Button"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_8no_Button"
+                android:layout_width="79dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="11dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toEndOf="@+id/Game_Activity_7no_Button"
+                app:layout_constraintTop_toBottomOf="@+id/Game_Activity_5no_Button"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Game_Activity_9no_Button"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="11dp"
+                android:background="@color/transparent"
+                android:fontFamily="@font/poppins"
+                android:onClick="check"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintStart_toEndOf="@+id/Game_Activity_8no_Button"
+                app:layout_constraintTop_toBottomOf="@+id/Game_Activity_5no_Button"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/Player1st_Got_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:paddingStart="12dp"
+            android:paddingTop="5dp"
+            android:text="You Got 'X'"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Game_Activity_1st_Player_Text_View"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
