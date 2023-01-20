@@ -168,6 +168,8 @@ public class Game_Activity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        startActivity(new Intent(Game_Activity.this,Main_Activity.class));
+        finish();
         return true;
     }
 

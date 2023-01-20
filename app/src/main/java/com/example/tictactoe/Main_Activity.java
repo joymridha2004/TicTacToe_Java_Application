@@ -52,10 +52,9 @@ public class Main_Activity extends AppCompatActivity {
 
                     startActivity(intent);
 
-                    /*---------------Back Press Edit Edit Text Reset --------------->*/
+                    /*---------------After start Activity Status --------------->*/
 
-                    MainActivity1stPlayerNameEditText.setText(null);
-                    MainActivity2ndPlayerNameEditText.setText(null);
+                    finish();
 
                 } else if (MainActivity1stPlayerNameEditText.getText().toString().equals(MainActivity2ndPlayerNameEditText.getText().toString()) && !MainActivity2ndPlayerNameEditText.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please Enter Two Different Name", Toast.LENGTH_SHORT).show();
