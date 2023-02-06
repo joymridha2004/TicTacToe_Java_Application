@@ -1,12 +1,14 @@
 package com.example.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +54,7 @@ public class Game_Activity extends AppCompatActivity {
     String Player1stName;
     String Player2ndName;
 
+    ImageView Game_Activity_github_link;
 
     int Move = 0, Player1stPoint = 0, Player2ndPoint = 0, ShapeMove = 0;
 
@@ -67,6 +71,9 @@ public class Game_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        /*<------------Night mode disable--------->*/
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         /* --------------Previous Activity Pass the Name Through the intent--------------- */
 
@@ -103,6 +110,18 @@ public class Game_Activity extends AppCompatActivity {
         GameActivity2ndPlayerMoveStatusTextView = findViewById(R.id.Game_Activity_2nd_Player_Move_Status_Text_View);
         GameActivity1stPlayerScoreTextView = findViewById(R.id.Game_Activity_1st_Player_Score_Text_View);
         GameActivity2ndPlayerScoreTextView = findViewById(R.id.Game_Activity_2nd_Player_Score_Text_View);
+
+        Game_Activity_github_link = findViewById(R.id.Game_Activity_github_link);
+
+        /*<------------Handle_Github_link_On_click_Listener--------->*/
+
+        Game_Activity_github_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/joymridha2004"));
+                startActivity(intent);
+            }
+        });
 
         /*---------------Hooks Quit DialogBox--------------->*/
 
@@ -168,7 +187,7 @@ public class Game_Activity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
-        startActivity(new Intent(Game_Activity.this,Main_Activity.class));
+        startActivity(new Intent(Game_Activity.this, Main_Activity.class));
         finish();
         return true;
     }
