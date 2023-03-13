@@ -2,7 +2,6 @@ package com.example.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -14,22 +13,17 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.Objects;
 
 public class Game_Activity extends AppCompatActivity {
 
 
     /* --------------Game_Activity--------------- */
-
-    Toolbar toolbar;
+    static int flag = 0;
 
     Button GameActivityRestartButton;
 
@@ -89,8 +83,6 @@ public class Game_Activity extends AppCompatActivity {
 
         /*---------------Hooks Game Activity--------------->*/
 
-        toolbar = findViewById(R.id.Game_Activity_Toolbar);
-
         GameActivityRestartButton = findViewById(R.id.Game_Activity_Restart_Button);
 
         GameActivity1noButton = findViewById(R.id.Game_Activity_1no_Button);
@@ -128,14 +120,6 @@ public class Game_Activity extends AppCompatActivity {
         QuitButton = QuitDialog.findViewById(R.id.Quit_Button);
         QuitCloseIV = QuitDialog.findViewById(R.id.Quit_Close_IV);
         QuitNameDialogBoxTV = QuitDialog.findViewById(R.id.Quit_Name_DialogBox_TV);
-
-        /* --------------Toolbar--------------- */
-
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        /*---------------Restart Game Logic--------------->*/
-
 
         /*---------------First Look Of Game / Restart Game--------------->*/
 
@@ -184,129 +168,130 @@ public class Game_Activity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        startActivity(new Intent(Game_Activity.this, Main_Activity.class));
-        finish();
-        return true;
-    }
 
     @SuppressLint("ResourceAsColor")
     public void check(View view) {
-        Button ButtonCurrent = (Button) view;
-        if (ButtonCurrent.getText().toString().equals("")) {
+        if (flag == 0) {
+            Button ButtonCurrent = (Button) view;
+            if (ButtonCurrent.getText().toString().equals("")) {
 
 
-            Move++;
-            if (ShapeMove % 2 == 0) {
-                Player1stGot = "X";
-                Player2ndGot = "O";
-                Player1stGotTV.setText(Player1stName + " You " + " Got  '" + Player1stGot + "'");
-                Player2ndGotTV.setText(Player2ndName + " You " + " Got  '" + Player2ndGot + "'");
-            } else {
-                Player1stGot = "O";
-                Player2ndGot = "X";
-                Player1stGotTV.setText(Player1stName + " You " + " Got  '" + Player1stGot + "'");
-                Player2ndGotTV.setText(Player2ndName + " You " + " Got  '" + Player2ndGot + "'");
-            }
-
-            if (Move % 2 != 0) {
-                ButtonCurrent.setText("X");
-                if (Player1stGot.equals("X")) {
-                    GameActivity2ndPlayerMoveStatusTextView.setText("Now  " + Player2ndName + " Your Game Move");
-                    GameActivity1stPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
-                    GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
-                    GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
+                Move++;
+                if (ShapeMove % 2 == 0) {
+                    Player1stGot = "X";
+                    Player2ndGot = "O";
+                    Player1stGotTV.setText(Player1stName + " You " + " Got  '" + Player1stGot + "'");
+                    Player2ndGotTV.setText(Player2ndName + " You " + " Got  '" + Player2ndGot + "'");
                 } else {
-                    GameActivity1stPlayerMoveStatusTextView.setText("Now  " + Player1stName + " Your Game Move");
-                    GameActivity2ndPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
-                    GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
-                    GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
+                    Player1stGot = "O";
+                    Player2ndGot = "X";
+                    Player1stGotTV.setText(Player1stName + " You " + " Got  '" + Player1stGot + "'");
+                    Player2ndGotTV.setText(Player2ndName + " You " + " Got  '" + Player2ndGot + "'");
                 }
 
-            } else {
-                ButtonCurrent.setText("O");
-                if (Player1stGot.equals("O")) {
-                    GameActivity2ndPlayerMoveStatusTextView.setText("Now  " + Player2ndName + " Your Game Move");
-                    GameActivity1stPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
-                    GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
-                    GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
-                } else {
-                    GameActivity1stPlayerMoveStatusTextView.setText("Now  " + Player1stName + " Your Game Move");
-                    GameActivity2ndPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
-                    GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
-                    GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
-                }
-            }
-
-            if (Move > 4) {
-                Button1 = GameActivity1noButton.getText().toString();
-                Button2 = GameActivity2noButton.getText().toString();
-                Button3 = GameActivity3noButton.getText().toString();
-                Button4 = GameActivity4noButton.getText().toString();
-                Button5 = GameActivity5noButton.getText().toString();
-                Button6 = GameActivity6noButton.getText().toString();
-                Button7 = GameActivity7noButton.getText().toString();
-                Button8 = GameActivity8noButton.getText().toString();
-                Button9 = GameActivity9noButton.getText().toString();
-
-
-                /*----------------------Time Delay---------------------------*/
-
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-
-
-                        /*----------------------Conditions---------------------------*/
-
-
-                        if (Button1.equals(Button2) && Button2.equals(Button3) && !Button1.equals("")) {
-                            NewGame(Button1);
-                        } else if (Button4.equals(Button5) && Button5.equals(Button6) && !Button4.equals("")) {
-                            NewGame(Button4);
-                        } else if (Button7.equals(Button8) && Button8.equals(Button9) && !Button7.equals("")) {
-                            NewGame(Button7);
-                        } else if (Button1.equals(Button4) && Button4.equals(Button7) && !Button1.equals("")) {
-                            NewGame(Button1);
-                        } else if (Button2.equals(Button5) && Button5.equals(Button8) && !Button2.equals("")) {
-                            NewGame(Button2);
-                        } else if (Button3.equals(Button6) && Button6.equals(Button8) && !Button3.equals("")) {
-                            NewGame(Button3);
-                        } else if (Button1.equals(Button5) && Button5.equals(Button9) && !Button1.equals("")) {
-                            NewGame(Button1);
-                        } else if (Button3.equals(Button5) && Button5.equals(Button7) && !Button3.equals("")) {
-                            NewGame(Button3);
-                        } else if (Move == 9) {
-                            NewGame("");
-                        }
+                if (Move % 2 != 0) {
+                    ButtonCurrent.setText("X");
+                    if (Player1stGot.equals("X")) {
+                        GameActivity2ndPlayerMoveStatusTextView.setText("Now  " + Player2ndName + " Your Game Move");
+                        GameActivity1stPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
+                        GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
+                        GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
+                    } else {
+                        GameActivity1stPlayerMoveStatusTextView.setText("Now  " + Player1stName + " Your Game Move");
+                        GameActivity2ndPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
+                        GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
+                        GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
                     }
-                };
 
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.postDelayed(runnable, 1000);
+                } else {
+                    ButtonCurrent.setText("O");
+                    if (Player1stGot.equals("O")) {
+                        GameActivity2ndPlayerMoveStatusTextView.setText("Now  " + Player2ndName + " Your Game Move");
+                        GameActivity1stPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
+                        GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
+                        GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
+                    } else {
+                        GameActivity1stPlayerMoveStatusTextView.setText("Now  " + Player1stName + " Your Game Move");
+                        GameActivity2ndPlayerMoveStatusTextView.setText("Waiting for Opponent Move ");
+                        GameActivity1stPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF000000"));
+                        GameActivity2ndPlayerMoveStatusTextView.setTextColor(Color.parseColor("#FF0000"));
+                    }
+                }
 
+                if (Move > 4) {
+                    Button1 = GameActivity1noButton.getText().toString();
+                    Button2 = GameActivity2noButton.getText().toString();
+                    Button3 = GameActivity3noButton.getText().toString();
+                    Button4 = GameActivity4noButton.getText().toString();
+                    Button5 = GameActivity5noButton.getText().toString();
+                    Button6 = GameActivity6noButton.getText().toString();
+                    Button7 = GameActivity7noButton.getText().toString();
+                    Button8 = GameActivity8noButton.getText().toString();
+                    Button9 = GameActivity9noButton.getText().toString();
+
+                    /*----------------------Conditions---------------------------*/
+
+
+                    if (Button1.equals(Button2) && Button2.equals(Button3) && !Button1.equals("")) {
+                        NewGame(Button1);
+                        flag = 1;
+                    } else if (Button4.equals(Button5) && Button5.equals(Button6) && !Button4.equals("")) {
+                        NewGame(Button4);
+                        flag = 1;
+                    } else if (Button7.equals(Button8) && Button8.equals(Button9) && !Button7.equals("")) {
+                        NewGame(Button7);
+                        flag = 1;
+                    } else if (Button1.equals(Button4) && Button4.equals(Button7) && !Button1.equals("")) {
+                        NewGame(Button1);
+                        flag = 1;
+                    } else if (Button2.equals(Button5) && Button5.equals(Button8) && !Button2.equals("")) {
+                        NewGame(Button2);
+                        flag = 1;
+                    } else if (Button3.equals(Button6) && Button6.equals(Button8) && !Button3.equals("")) {
+                        NewGame(Button3);
+                        flag = 1;
+                    } else if (Button1.equals(Button5) && Button5.equals(Button9) && !Button1.equals("")) {
+                        NewGame(Button1);
+                        flag = 1;
+                    } else if (Button3.equals(Button5) && Button5.equals(Button7) && !Button3.equals("")) {
+                        NewGame(Button3);
+                        flag = 1;
+                    } else if (Move == 9) {
+                        NewGame("");
+                        flag = 1;
+                    }
+
+                }
             }
         }
     }
 
     public void NewGame(String point) {
+        /*----------------------Time Delay---------------------------*/
 
-        GameActivity1noButton.setText("");
-        GameActivity2noButton.setText("");
-        GameActivity3noButton.setText("");
-        GameActivity4noButton.setText("");
-        GameActivity5noButton.setText("");
-        GameActivity6noButton.setText("");
-        GameActivity7noButton.setText("");
-        GameActivity8noButton.setText("");
-        GameActivity9noButton.setText("");
-        Move = 0;
-        ShapeMove++;
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
 
-        FindWinner(point);
+                GameActivity1noButton.setText("");
+                GameActivity2noButton.setText("");
+                GameActivity3noButton.setText("");
+                GameActivity4noButton.setText("");
+                GameActivity5noButton.setText("");
+                GameActivity6noButton.setText("");
+                GameActivity7noButton.setText("");
+                GameActivity8noButton.setText("");
+                GameActivity9noButton.setText("");
+                Move = 0;
+                ShapeMove++;
 
+                FindWinner(point);
+
+                flag = 0;
+            }
+        };
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(runnable, 1000);
     }
 
     public void FindWinner(String WinSymbol) {
