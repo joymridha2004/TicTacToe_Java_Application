@@ -50,11 +50,15 @@ public class Game_Activity extends AppCompatActivity {
 
     ImageView Game_Activity_github_link;
 
+    TextView Game_Activity_Version_TV;
+
     int Move = 0, Player1stPoint = 0, Player2ndPoint = 0, ShapeMove = 0;
 
     /* --------------Quit_DialogBox--------------- */
 
     Button QuitButton;
+
+    Button RestartButton;
     ImageButton QuitCloseIV;
 
     TextView QuitNameDialogBoxTV;
@@ -104,6 +108,7 @@ public class Game_Activity extends AppCompatActivity {
         GameActivity2ndPlayerScoreTextView = findViewById(R.id.Game_Activity_2nd_Player_Score_Text_View);
 
         Game_Activity_github_link = findViewById(R.id.Game_Activity_github_link);
+        Game_Activity_Version_TV = findViewById(R.id.Game_Activity_Version_TV);
 
         /*<------------Handle_Github_link_On_click_Listener--------->*/
 
@@ -115,9 +120,20 @@ public class Game_Activity extends AppCompatActivity {
             }
         });
 
+        /*<------------Handle_Github_Project_Link_On_click_Listener--------->*/
+
+        Game_Activity_Version_TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/joymridha2004/TicTacToe_Java_Application"));
+                startActivity(intent);
+            }
+        });
+
         /*---------------Hooks Quit DialogBox--------------->*/
 
         QuitButton = QuitDialog.findViewById(R.id.Quit_Button);
+        RestartButton = QuitDialog.findViewById(R.id.Restart_Button);
         QuitCloseIV = QuitDialog.findViewById(R.id.Quit_Close_IV);
         QuitNameDialogBoxTV = QuitDialog.findViewById(R.id.Quit_Name_DialogBox_TV);
 
@@ -156,6 +172,20 @@ public class Game_Activity extends AppCompatActivity {
                 finish();
             }
         });
+
+        /* --------------Handle onClicks on  dialogBox Restart Button------------------- */
+
+        RestartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Game_Activity.this, Game_Activity.class);
+                i.putExtra("PlayerName1st", Player1stName);
+                i.putExtra("PlayerName2nd", Player2ndName);
+                startActivity(i);
+                finish();
+            }
+        });
+
 
         /* --------------Handle onClicks on  dialogBox Close Button------------------- */
 
@@ -269,6 +299,7 @@ public class Game_Activity extends AppCompatActivity {
     public void NewGame(String point) {
         /*----------------------Time Delay---------------------------*/
 
+        FindWinner(point);
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -285,7 +316,6 @@ public class Game_Activity extends AppCompatActivity {
                 Move = 0;
                 ShapeMove++;
 
-                FindWinner(point);
 
                 flag = 0;
             }
@@ -329,6 +359,5 @@ public class Game_Activity extends AppCompatActivity {
             Toast.makeText(this, "Game is Draw", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 }
